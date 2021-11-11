@@ -36,8 +36,9 @@ class read(Structure):
                 ('KoefDAC', c_ushort*4),
                 ('USHORT Custom', c_ushort*32)]
 
-wl = cdll.wlcomp
-hDll = pointer(c_ulong(wl.LoadAPIDLL('lcomp.dll')))
+#wl = cdll.wlcomp
+wl = ctypes.CDLL('lib\\wlcomp.dll')
+hDll = pointer(c_ulong(wl.LoadAPIDLL('lib\\lcomp.dll')))
 hErr = pointer(c_ulong())
 hIfc = pointer(c_ulong(wl.CallCreateInstance(hDll, 0, hErr)))
 print 'hDll', hDll.contents.value
@@ -47,7 +48,7 @@ print 'hErr', hErr.contents.value
 Open = pointer(c_ulong(wl.OpenLDevice(hIfc)))
 print 'Open', Open.contents.value
 
-Bios = pointer(c_ulong(wl.LoadBios(hIfc, 'E440')))
+Bios = pointer(c_ulong(wl.LoadBios(hIfc, 'lib\\E440')))
 print 'Bios', Bios.contents.value
 
 Test = pointer(c_ulong(wl.PlataTest(hIfc)))
