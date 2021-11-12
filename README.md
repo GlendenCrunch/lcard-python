@@ -7,5 +7,5 @@
   + lct2_e14.py: пример работы АЦП E14 используя функции RequestBufferStream, FillDAQparameters и SetParametersStream для усиления 1, с опросом 16 каналов с частотой АЦП 400 кГц.
 + Python 3.8.2:
   + lct3_e14.py: тоже что и lct2_e14.py
-  + lct3_e502.py:
-  + e502_libusb1.py:
+  + lct3_e502.py: пример работы ЦАП E-502
+  + e502_libusb1.py: пример работы АЦП E-502 используя низкоуровневое описание
