@@ -2,9 +2,9 @@
 + Библиотеки: ctypes, usb1
 + Протестировано на платах: E14-440, E14-440D, E-502
 + Python 2.7:
-  + lcio.py: пример работы АЦП E14 используя функцию IoAsync для 4-х усилений (1, 4, 16, 64);
+  + lcio.py: пример работы АЦП E14 используя функцию IoAsync для 4-х усилений (10, 2.5, 0.625, 0.1562);
   + lcio2.py: пример работы ЦАП E14 используя функцию IoAsync;
-  + lct2_e14.py: пример работы АЦП E14 используя функции RequestBufferStream, FillDAQparameters и SetParametersStream для усиления 1, с опросом 16 каналов с частотой АЦП 400 кГц.
+  + lct2_e14.py: пример работы АЦП E14 используя функции RequestBufferStream, FillDAQparameters и SetParametersStream для усиления 10, с опросом 16 каналов с частотой АЦП 400 кГц.
 + Python 3.8.2:
   + lct3_e14.py: тоже что и lct2_e14.py
   + lct3_e502.py: пример работы ЦАП E-502
