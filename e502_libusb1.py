@@ -3,6 +3,7 @@
 import math
 import array
 import time
+import ctypes
 import usb1
 from struct import pack, unpack
 import matplotlib.pyplot as plt
@@ -10,10 +11,6 @@ from matplotlib.pyplot import figure, show
 import numpy as np
 from numpy import mean, sqrt, square
 import os
-
-folder_1 = os.getcwd()
-with open('{}\\lct_e502.py'.format(folder_1), 'r', encoding='utf-8') as lct_e502:
-    exec(lct_e502.read())
 
 # ============= Запись в регистр FPGA ================
 # 0xC0 - приеме из модуля
@@ -32,6 +29,12 @@ with open('{}\\lct_e502.py'.format(folder_1), 'r', encoding='utf-8') as lct_e502
 # 0x19 - Стирание блока данных во Flash-памяти модуля
 # 0x1A - Изменение уровня защиты Flash-памяти модуля
 # ====================================================
+
+lib = ctypes.cdll.LoadLibrary('lib\\e502api.dll')
+lib2 = ctypes.cdll.LoadLibrary('lib\\x502api.dll')
+Create = lib2.X502_Create()
+Open = lib.E502_OpenUsb(Create, 0)
+lib2.X502_Close(Create)
 
 def first_load():
     global handle
