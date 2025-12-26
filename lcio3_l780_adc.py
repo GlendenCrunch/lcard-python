@@ -1,6 +1,6 @@
 #!/usr/bin/python3-32
 # -*- coding: utf-8 -*-
-"""Пример работы АЦП L-CARD E14-440, 440D, L780 в асинхронном режиме"""
+"""Пример работы АЦП L-CARD E14-440, 440D в асинхронном режиме"""
 import os
 from ctypes import CDLL,pointer,Structure,c_ulong,c_ushort,c_char,c_double
 
@@ -68,8 +68,7 @@ print ('hErr', hErr.contents.value)
 Open = pointer(c_ulong(wl.OpenLDevice(hIfc)))
 print ('Open', Open.contents.value)
 
-Bios = pointer(c_ulong(wl.LoadBios(hIfc, f'{folder}\\lib\\E440')))
-# Bios = pointer(c_ulong(wl.LoadBios(hIfc, f'{folder}\\lib\\L780')))
+Bios = pointer(c_ulong(wl.LoadBios(hIfc, f'{folder}\\lib\\L780')))
 print ('Bios', Bios.contents.value)
 
 Test = pointer(c_ulong(wl.PlataTest(hIfc)))
